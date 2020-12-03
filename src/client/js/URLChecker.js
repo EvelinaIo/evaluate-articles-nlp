@@ -1,7 +1,7 @@
 var validUrl = require('valid-url');
 
 
-function UrlIsValid(inputText) {
+export function UrlIsValid(inputText) {
   if (validUrl.isUri(inputText)){
     console.log('Looks like an URI');
 } else {
@@ -9,4 +9,4 @@ function UrlIsValid(inputText) {
 }
   }
 
-export { UrlIsValid }
+

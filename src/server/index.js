@@ -1,7 +1,6 @@
 // Set up Environment variables
 const dotenv = require('dotenv');
 dotenv.config();
-const API_KEY = process.env.API_KEY;
 
 // Require Express to run server and routes
 const express = require('express')
@@ -14,13 +13,6 @@ const app = express()
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fetch = require('node-fetch');
-
-/* API call parts */
-const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
-const keyURL = `?key=${API_KEY}`;
-const langURL = '&lang=auto';
-const userURL = '&url='
-
 
 /* Middleware*/
 // Cors for cross origin allowance
@@ -50,3 +42,25 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
+/* API call parts */
+const API_KEY = process.env.API_KEY;
+const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
+const keyURL = `?key=${API_KEY}`;
+const userURL = '&url=';
+const langURL = '&lang=auto';
+
+app.post('/api', apiResponse );
+
+async function apiResponse(req, res) { 
+    console.log(`Url is: ${req.body}`)
+    const userInput = req.body;
+    const newURL = baseURL + keyURL + userURL + userInput + langURL;
+    const response = await fetch(newURL);
+    try {
+        const apiReport = await response.json();
+        console.log(apiReport);
+        res.send(apiReport);
+    } catch (error){
+        console.log('error')
+    }
+}
