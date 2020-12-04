@@ -9,11 +9,11 @@ export async function handleSubmit(event) {
 
     // check if url is valid using URLChecker
     if (!Client.UrlIsValid(inputURL)){
-        console.log("Valid url!");
-        results.innerHTML = "";
-    } else {
         console.log("Invalid url");
         results.innerHTML = "Invalid url";
+    } else {
+        console.log("Valid url!");
+        results.innerHTML = "";
     }
         console.log("::: URL Submitted :::")
 
