@@ -1,12 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
+$font-stack: 'Castoro', serif;
+$primary-color: #2C3E50;
+$secondary-color: #f1f1f1;
+$hover-color: #46607a;
+
+#form {
+    text-align: center;
+}
+
 form {
-    border: 1px solid #545454;
+    background-color: $secondary-color;
     border-radius: 3px;
+    opacity: 0.9;
     padding: 40px;
 }
 
 input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+    &[type="text"] {
+        padding: 10px 20px;
+        width: 100%;
+        line-height: 16px;
+        margin: 10px 0;
+        opacity: 1;
+        font-family: $font-stack;
+        border: none;
+    }
+    &[type="submit"] {
+        padding: 15px 20px;
+        width: 50%;
+        line-height: 16px;
+        margin: 10px 0;
+        background-color: $primary-color;
+        font-size: 1.5em;
+        color: $secondary-color;
+        font-family: $font-stack;
+        border: none;
+        
+        &:hover {
+            background-color: $hover-color;
+            cursor: pointer;
+        }
+    }
 }
+

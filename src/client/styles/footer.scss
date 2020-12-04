@@ -1,0 +1,12 @@
+$secondary-color: #f1f1f1;
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    a{
+        text-decoration: underline;
+        color: $secondary-color;
+    }
+}
