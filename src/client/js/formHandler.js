@@ -6,6 +6,7 @@ export async function handleSubmit(event) {
     // Get user input
     let inputURL = document.getElementById('url').value
     let results = document.getElementById('results');
+
     // check if url is valid using URLChecker
     if (!Client.UrlIsValid(inputURL)){
         console.log("Valid url!");
@@ -37,16 +38,18 @@ export async function getReport(url, inputURL) {
         return response;
     }
         
-    
+// async function to update UI with the results received from the api    
 async function updateUI(res) {
-    results.innerHTML = `Subjectivity: ${res.subjectivity},
-    Confidence: ${res.confidence},
-    Irony: ${res.irony}`;
+    const results = document.getElementById('results');
+    const subjectivity = document.createElement("div");
+    const confidence = document.createElement("div");
+    const irony = document.createElement("div");
+
+    subjectivity.innerHTML = `SUBJECTIVITY: ${res.subjectivity}`;
+    confidence.innerHTML = `CONFIDENCE: ${res.confidence}`;
+    irony.innerHTML = `IRONY: ${res.irony}`;
+
+    results.appendChild(subjectivity);
+    results.appendChild(confidence);
+    results.appendChild(irony);
     }
-    
-    
-       /* fetch('http://localhost:8081/test')
-        .then(res => res.json())
-        .then(function(res) {
-            document.getElementById('results').innerHTML = res.message
-        })*/

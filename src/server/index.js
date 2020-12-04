@@ -49,6 +49,7 @@ const keyURL = `?key=${API_KEY}`;
 const userURL = '&url=';
 const langURL = '&lang=auto';
 
+// POST Route
 app.post('/api', apiResponse );
 
 async function apiResponse(req, res) { 
