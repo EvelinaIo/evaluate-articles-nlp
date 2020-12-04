@@ -31,6 +31,7 @@ npm start
 ## Instructions for Use
 Enter a url in the input field and hit the submit button.
 Under Form results you will see a sentiment analysis for the article submitted, using the MeaningCloud API.
+You will get results for Subjectivity, Confidence and Irony.
 
 ## Author
 The code was written by EvelinaIo, based on starter code given by Udacity's Front-End Development Nanodegree course, Project 4.
